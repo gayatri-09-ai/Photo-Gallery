@@ -1,0 +1,207 @@
+* {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgb(232, 218, 218);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+h1 {
+  font-weight: lighter;
+  font-size: 35px;
+  position: relative;
+  margin: 30px 0;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: crimson;
+  left: 50%;
+  animation: animate 4s linear infinite ;
+  transform: translateX(-50%);
+}
+h2{
+  font-size: 40px;
+  font-family: sans-serif;
+  margin-top: 5px;
+  
+}
+@keyframes animate{
+  0%{
+        width: 100px;
+  }
+  50%{
+    width: 200px;
+  }
+  100%{
+    width: 100px;
+  }
+}
+
+.navbar {
+  background-color: rgb(243, 243, 243);
+  width: 90%;
+  margin: 0 auto 20px auto;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightgray;
+}
+label{
+  display: inline-block;
+  height: 100%;
+  padding: 0 10px;
+  margin: 0 0px;
+  line-height: 60px;
+  font-size: 15px;
+  color: gray;
+  cursor: pointer;
+  transition: color .5s;
+  background-color: #fff;
+}
+label:hover{
+  color: black;
+  font-weight: bold;
+}
+
+.photo-gallery {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 30px;
+}
+
+.pic {
+  position: relative;
+  height: 230px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px lightgray;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: .2s linear;
+}
+
+.pic:hover {
+  transform: scale(1.1);
+  
+}
+#check1:checked ~ .container .photo-gallery .pic{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  transition: .0s;
+}
+#check2:checked ~ .container .photo-gallery .creative{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;    
+}
+#check2:checked ~ .container .photo-gallery .work,
+#check2:checked ~ .container .photo-gallery .team{
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: .0s;
+}
+#check3:checked ~ .container .photo-gallery .work{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+  
+}
+#check3:checked ~ .container .photo-gallery .scene,
+#check3:checked ~ .container .photo-gallery .creative{
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: .0s;
+}
+#check4:checked ~ .container .photo-gallery .scene{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+  
+}
+#check4:checked ~ .container .photo-gallery .team,
+#check4:checked ~ .container .photo-gallery .work{
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: .0s;
+}
+#check5:checked ~ .container .photo-gallery .team{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+  
+}
+#check5:checked ~ .container .photo-gallery .creative,
+#check5:checked ~ .container .photo-gallery .scene{
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: .0s;
+}
+
+/* Modal Styles */
+.popup-img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.9);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  display: none;
+}
+
+.popup-img span{
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  z-index: 100;
+}
+.popup-img img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 5px solid #fff;
+  border-radius: 5px;
+  width: 750px;
+  object-fit: cover;
+}
+@media (max-width:768px){
+  .popup-img img{
+    width: 95%;
+
+  }
+}
